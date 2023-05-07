@@ -52,19 +52,52 @@ export class LinkedinList extends Sorter {
   }
 
   // My implementation. I need to study linkedlist
-  // swap(leftIndex: number, rightIndex: number): void {
-  //   // cases:
-  //   // - Both index are equal;
-  // }
-
   swap(leftIndex: number, rightIndex: number): void {
-    const leftNode = this.at(leftIndex);
-    const rightNode = this.at(rightIndex);
+    if (leftIndex === rightIndex) return;
 
-    const leftHand = leftNode.data;
-    leftNode.data = rightNode.data;
-    rightNode.data = leftHand;
+    const leftNode = this.at(leftIndex);
+    let prevLeft = null;
+    let currentyLeft = this.head;
+
+    while (currentyLeft != null && currentyLeft != leftNode) {
+      prevLeft = currentyLeft;
+      currentyLeft = currentyLeft.next;
+    }
+
+    const rightNode = this.at(rightIndex);
+    let prevRight = null;
+    let currentyRight = this.head;
+
+    while (currentyRight != null && currentyRight != rightNode) {
+      prevRight = currentyRight;
+      currentyRight = currentyRight.next;
+    }
+
+    if (currentyLeft == null || currentyRight == null) return;
+
+    if (prevLeft != null) {
+      prevLeft.next = currentyRight;
+    } else {
+      this.head = currentyRight;
+    }
+    if (prevRight != null) {
+      prevRight.next = currentyLeft;
+    } else {
+      this.head = currentyLeft;
+    }
+    const temp = currentyLeft.next;
+    currentyLeft.next = currentyRight.next;
+    currentyRight.next = temp;
   }
+  // Swaping only data
+  // swap(leftIndex: number, rightIndex: number): void {
+  //   const leftNode = this.at(leftIndex);
+  //   const rightNode = this.at(rightIndex);
+
+  //   const leftHand = leftNode.data;
+  //   leftNode.data = rightNode.data;
+  //   rightNode.data = leftHand;
+  // }
 
   print(): void {
     if (!this.size) return;
