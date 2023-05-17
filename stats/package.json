@@ -1,0 +1,19 @@
+{
+  "name": "stats",
+  "version": "1.0.0",
+  "main": "build/index.js",
+  "author": "Luciano Dantas",
+  "license": "MIT",
+  "scripts": {
+    "start:build": "tsc -w",
+    "start:run": "nodemon build/index.js",
+    "start": "concurrently yarn:start:*"
+  },
+  "dependencies": {
+    "concurrently": "^8.0.1",
+    "nodemon": "^2.0.22"
+  },
+  "devDependencies": {
+    "@types/node": "^20.1.0"
+  }
+}
