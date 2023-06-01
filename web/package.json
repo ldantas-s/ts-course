@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "start:parcel": "npx parcel index.html",
+    "start:db": "yarn json-server -w db.json"
+  },
+  "dependencies": {
+    "axios": "^1.4.0",
+    "json-server": "^0.17.3"
+  },
+  "devDependencies": {
+    "buffer": "^5.5.0"
+  }
+}
