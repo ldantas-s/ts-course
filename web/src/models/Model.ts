@@ -39,12 +39,13 @@ export class Model<T extends HasId> {
 
   /**
    * OBS: the code bellow it's possible only because
-   * attributes and sync is initialized in the constructor
+   * attributes and events is initialized in the constructor
    */
   // shortcut to do the above
   on = this.events.on;
   trigger = this.events.trigger;
   get = this.attributes.get;
+  getAll = this.attributes.getAll;
 
   set(update: T): void {
     this.attributes.set(update);
