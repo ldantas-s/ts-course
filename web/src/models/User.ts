@@ -3,7 +3,7 @@ import { Eventing } from './Eventing';
 import { Sync } from './Sync';
 import { Model } from './Model';
 
-interface UserProps {
+export interface UserProps {
   id?: number;
   name?: string;
   age?: number;
