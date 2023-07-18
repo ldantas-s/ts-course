@@ -15,20 +15,20 @@ function requireAtuh(req: Request, res: Response, next: NextFunction): void {
 
 const router = Router();
 
-router.post('/login', (req: RequestWithBody, res: Response) => {
-  const body = req.body;
-  const email = body?.email;
-  const password = body?.password;
+// router.post('/login', (req: RequestWithBody, res: Response) => {
+//   const body = req.body;
+//   const email = body?.email;
+//   const password = body?.password;
 
-  if (email && password && email === 'hi@hi.com' && password === 'pass') {
-    // mark this person logged in
-    req.session = { loggedIn: true };
-    // redirect them to the root route
-    res.redirect('/');
-  } else {
-    res.send('Invalid email or password');
-  }
-});
+//   if (email && password && email === 'hi@hi.com' && password === 'pass') {
+//     // mark this person logged in
+//     req.session = { loggedIn: true };
+//     // redirect them to the root route
+//     res.redirect('/');
+//   } else {
+//     res.send('Invalid email or password');
+//   }
+// });
 
 router.get('/', (req: Request, res: Response) => {
   if (req.session && req.session.loggedIn) {
